@@ -1,5 +1,5 @@
 ﻿------------------------------------------------------------------------------------------------------------------------
-!! Gotcha Again v1.39 (War of the Chosen)                                                                             !!
+!! Gotcha Again v1.40 (War of the Chosen)                                                                             !!
 ------------------------------------------------------------------------------------------------------------------------
 This mod improves on the Line of Sight indicators that are shown when previewing moves in the tactical game.
 
@@ -76,7 +76,7 @@ Indicators along the movement path
 ------------------------------------------------------------------------------------------------------------------------
 All settings can be changed in-game via Mod Config Menu. This requires the Mod Config Menu mod to be installed, which 
 can be found on the workshop at http://steamcommunity.com/sharedfiles/filedetails/?id=667104300.
-If Mod Config Menu is not installed, the settings can be changed from XComGotchaAgainDefaultSettings.ini, where you can 
+If Mod Config Menu is not installed, the settings can be changed from XComWOTCGotchaAgainDefaultSettings.ini, where you can 
 change the following:
 
 bShowSquadsightHackingIndicator: Enable/disable showing the hacking-indicator for units that are hackable or damagable 
@@ -158,6 +158,10 @@ X2MeleePathingPawn: Needed in order to do the path indicators when selecting tar
 ------------------------------------------------------------------------------------------------------------------------
 ! Changelog                                                                                                            !
 ------------------------------------------------------------------------------------------------------------------------
+v1.40 (WOTC):
+- Renamed to "WOTCGotchaAgain" to try to avoid CTD issues seen when XCOM 2 launcher loads pre-WOTC version of
+ Gotcha Again. Ignore any warnings this may cause when loading a save game.
+
 v1.39 (WOTC):
 - Update mod to work with War of the Chosen. This breaks compatibility with the vanilla non-WOTC version of XCOM 2.
  Compatibility with Perfect Information is also now broken. I will attempt to restore compatibility if/when Perfect

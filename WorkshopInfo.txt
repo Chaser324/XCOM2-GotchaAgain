@@ -1,0 +1,51 @@
+[WotC] Gotcha Again
+
+This mod improves on the Line of Sight indicators that are shown when previewing moves in the tactical game.
+
+This version is specifically for use with War of the Chosen. The original release that works in the base game without War of the Chosen can be found here: http://steamcommunity.com/sharedfiles/filedetails/?id=866874504
+
+This update was created with the permission of its original author.
+
+[h1]Features[/h1]
+[b]Indicators for enemy units[/b]
+-[i]Regular shootable indicator:[/i] Shows the red reticle from the base game next to an enemys healthbar when it is shootable from the new position.
+-[i]Flanking indicator:[/i] If the enemy will not only be shootable but also flanked from the new position, a yellow reticle will be shown instead of the red one.
+-[i]Squadsight indicators:[/i] If the unit being moved has Squadsight and will be able to shoot at an enemy because of this ability, a red diamond square will be shown instead of the reticle. If the enemy will also be flanked by the unit at the new position, the square will be yellow and half empty. 
+-[i]Hacking indicators:[/i] For units possesing an ability that allows an action using the Gremlin to either damage or hack, a cog-icon will be shown when they will be able to use it on something outside the regular sightrange (inside it, the regular shootable indicator is shown already).
+-[i]Spotted by enemy indicator:[/i] If the unit being moved is a VIP (from a rescue or escort mission) a green diamond square outline is shown, indicating that the enemy will see the unit. This feature is not necessary anymore with the introduction of pod activation indicators, so it is turned off by default.
+
+[b]Indicators for mission objectives[/b]
+-[i]Neutralize VIP:[/i] The arrow pointing at the VIP will change to include the same indicators that are shown for regular enemy units depending on the previewed new position.
+-[i]Hacking objectives:[/i] The arrow pointing at the objective will change to indicate when hacking is possible from the new position.
+-[i]Destroy object:[/i] The arrow icon will change to show when it is shootable from the new position and if it is shootable because of Squadsight.
+
+[b]Indicators for hackable doors[/b]
+-The indicator showing that hacking a door will be possible will appear for units able to hack remotely using the Gremlin, if that will be possible from the previewed location.
+
+[b]Indicators for hackable ADVENT towers[/b]
+-The first time an ADVENT tower is spotted by one of your units, an indicator arrow like the one used for objectives will be spawned and the possibility of hacking the tower will then be indicated in this icon.
+
+[b]Indicators for friendly units[/b]
+-If there will be LOS to a friendly unit and it will be within the moving units sightrange, this will be indicated by a green diamond square outline. The indicator is dimmed along with the rest of the unitflag for friendly units, so it can be a bit hard to see, but this also means it's non-intrusive.
+
+[b]Indicators for triggering overwatches and pod activations[/b]
+-[i]Overwatch indicators:[/i] When moving through LOS of a hostile unit on overwatch, the icon indicating that they are in overwatch will have a red reticle added indicating that their overwatch will be triggered by the move. The tile on which the overwatch will trigger is also indicated by a marker. Shots that will be taken by units suppressing the unit being moved will be indicated in the same way.
+-[i]Pod activation indicators:[/i] When a move will trigger a pod activation, an indicator will appear on the unit that will spot you and the tile on which you are first spotted will be indicated by a marker as well.
+-Both the overwatch and pod activation indicators only take enemies currently visible to you into account, so they are exclusively based on information already available to you through the UI in the vanilla game (otherwise it would be cheating!). This means that pods not visible to you before initiating the move that will activate because of it, will NOT be indicated, and units in overwatch outside your current vision will also not be indicated. Similarly, units on overwatch using long-watch will only be indicated if another hostile unit that will be able to see you on the triggering location is visible to you before initiating the move.
+-[i]Smoke indicator:[/i] If the final tile of the movement path contains smoke from a smoke-grenade, this will be indicated by a marker similar to the hazard marker.
+-[i]PsiBomb indicator:[/i] If the final tile of the movement path is in the area of effect of an active PsiBomb, this will be indicated by a marker.
+
+[h1]Compatibility[/h1]
+This mod overrides the following classes and will be incompatible with any other mods that overrides any of the same classes.
+UIUnitFlagManager: For the main functionality.
+XComGameState_IndicatorArrow: For objective indicator icon replacements.
+X2GrapplePuck: So indicators can be shown when selecting grapple locations.
+UISpecialMissionHUD_Arrows: To overrule the hiding of objective indicator when using grapple.
+XComPathingPawn: Doing path indicators. This is also overriden by Perfect Information. Gotcha Again implements compatibility with Perfect Information and tjnome has agreed to implement compatibility the other way as well, but until his new update is released, it can cause issues depending on the load order of the two mods. You can fix this manually by removing the override from Perfect Information (see the discussion thread on this for instructions).
+X2MeleePathingPawn: Needed in order to do the path indicators when selecting targets for melee attacks.
+
+I am not aware of any mods other than the original Gotcha that overrides any of these classes, except for Perfect Information which will implement compatibility with Gotcha Again in the next update and can be fixed manually until then.
+
+[h1]Known issues[/h1]
+-Compatibility with Perfect Information has been broken. I will repair it if/when Perfect Information is updated for War of the Chosen.
+-Please let me know if you encounter any other issues, and if a savegame demonstrating it can be provided, it will make fixing it a lot easier on my part.

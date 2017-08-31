@@ -37,7 +37,7 @@ public function ProcessUnitIndicators(const out TTile DestinationTile, optional 
             if(TargetUnit.IsEnemyUnit(Outer.ControlledUnit)) {
                 // VIPs have no use for the regular indicators since they cannot shoot. Instead we process LOS from
                 // hostile units to the VIP to show an indicator for the hostile unit being able to see/shoot the VIP.
-                if(class'GotchaAgainSettings'.default.bShowVIPSpottedByEnemyIndicators) {
+                if(class'WOTCGotchaAgainSettings'.default.bShowVIPSpottedByEnemyIndicators) {
                     LOSValuesForUnit = LOSUtility.GetLOSValues(TargetUnit.TileLocation, 
                                                                DestinationTile, 
                                                                TargetUnit, 
@@ -120,7 +120,7 @@ public function EIndicatorValue GetIndicatorValueForUnit(XComGameState_Unit Sour
     if(!LOSValuesForUnit.bClearLOS) return eNotVisible;
 
     // Handle friendly unit indicators
-    if(!TargetUnit.IsEnemyUnit(Outer.ControlledUnit)) return (class'GotchaAgainSettings'.default.bShowFriendlyLOSIndicators && LOSValuesForUnit.bWithinRegularRange) ? eSpottedFriendly : eNotVisible;
+    if(!TargetUnit.IsEnemyUnit(Outer.ControlledUnit)) return (class'WOTCGotchaAgainSettings'.default.bShowFriendlyLOSIndicators && LOSValuesForUnit.bWithinRegularRange) ? eSpottedFriendly : eNotVisible;
     
     // Handle VIPs
     if(Outer.bControlledUnitIsVIP) return LOSValuesForUnit.bWithinRegularRange ? eSpottedByEnemy : eNotVisible;
@@ -132,7 +132,7 @@ public function EIndicatorValue GetIndicatorValueForUnit(XComGameState_Unit Sour
     if(SourceUnit.HasSquadsight()) return LOSValuesForUnit.bFlanked ? eSquadsightFlanked : eSquadsight;
     
     // Here we check whether to show the indicator for hackable units
-    if(class'GotchaAgainSettings'.default.bShowSquadsightHackingIndicator
+    if(class'WOTCGotchaAgainSettings'.default.bShowSquadsightHackingIndicator
        && (SourceUnit.FindAbility('CombatProtocol') != EmptyRef
            || ((SourceUnit.FindAbility('HaywireProtocol') != EmptyRef 
                 || SourceUnit.FindAbility('FullOverride') != EmptyRef)

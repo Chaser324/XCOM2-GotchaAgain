@@ -10,7 +10,7 @@ simulated event Tick(float DeltaTime) {
     super.Tick(DeltaTime);
 
     // If this is not enabled, just return and skip updating the LOS indicators
-    if(!class'GotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
+    if(!class'WOTCGotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
         return;
     }       
 

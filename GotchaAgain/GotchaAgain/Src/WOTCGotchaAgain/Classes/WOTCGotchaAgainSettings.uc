@@ -1,4 +1,4 @@
-class GotchaAgainSettings extends UIScreenListener config(GotchaAgainSettings);
+class WOTCGotchaAgainSettings extends UIScreenListener config(WOTCGotchaAgainSettings);
 
 var config int iVersion;
 
@@ -30,7 +30,7 @@ var int CurrentGameMode;
 var private array<string> AvailableIconPacks;
 
 event OnInit(UIScreen Screen) {
-    if(iVersion < class'GotchaAgainDefaultSettings'.default.iVersion) {
+    if(iVersion < class'WOTCGotchaAgainDefaultSettings'.default.iVersion) {
         LoadDefaultSettings();
     }
 
@@ -187,33 +187,33 @@ private static function LoadDefaultSettings() {
     // Remember to include all versions here from 135, where MCM was introduced, and on (excluding the latest) even though no new options were added
     switch(default.iVersion) {
         case 0:
-            default.bShowSquadsightHackingIndicator             = class'GotchaAgainDefaultSettings'.default.bShowSquadsightHackingIndicator;
-            default.bShowFriendlyLOSIndicators                  = class'GotchaAgainDefaultSettings'.default.bShowFriendlyLOSIndicators;
-            default.bShowVIPSpottedByEnemyIndicators            = class'GotchaAgainDefaultSettings'.default.bShowVIPSpottedByEnemyIndicators;
-            default.bShowLoneWolfIndicator                      = class'GotchaAgainDefaultSettings'.default.bShowLoneWolfIndicator;
+            default.bShowSquadsightHackingIndicator             = class'WOTCGotchaAgainDefaultSettings'.default.bShowSquadsightHackingIndicator;
+            default.bShowFriendlyLOSIndicators                  = class'WOTCGotchaAgainDefaultSettings'.default.bShowFriendlyLOSIndicators;
+            default.bShowVIPSpottedByEnemyIndicators            = class'WOTCGotchaAgainDefaultSettings'.default.bShowVIPSpottedByEnemyIndicators;
+            default.bShowLoneWolfIndicator                      = class'WOTCGotchaAgainDefaultSettings'.default.bShowLoneWolfIndicator;
 
-            default.sIconPack                                   = class'GotchaAgainDefaultSettings'.default.sIconPack;
-            default.bShowTowerHackingArrows                     = class'GotchaAgainDefaultSettings'.default.bShowTowerHackingArrows;
-            default.bHideTowerArrowsAfterHacking                = class'GotchaAgainDefaultSettings'.default.bHideTowerArrowsAfterHacking;
+            default.sIconPack                                   = class'WOTCGotchaAgainDefaultSettings'.default.sIconPack;
+            default.bShowTowerHackingArrows                     = class'WOTCGotchaAgainDefaultSettings'.default.bShowTowerHackingArrows;
+            default.bHideTowerArrowsAfterHacking                = class'WOTCGotchaAgainDefaultSettings'.default.bHideTowerArrowsAfterHacking;
 
-            default.bShowLOSIndicatorsForGrappleDestinations    = class'GotchaAgainDefaultSettings'.default.bShowLOSIndicatorsForGrappleDestinations;
-            default.bDisableHideObjectiveArrowsWhenUsingGrapple = class'GotchaAgainDefaultSettings'.default.bDisableHideObjectiveArrowsWhenUsingGrapple;
-            default.bDisableDimHostileUnitFlagsWhenUsingGrapple = class'GotchaAgainDefaultSettings'.default.bDisableDimHostileUnitFlagsWhenUsingGrapple;
+            default.bShowLOSIndicatorsForGrappleDestinations    = class'WOTCGotchaAgainDefaultSettings'.default.bShowLOSIndicatorsForGrappleDestinations;
+            default.bDisableHideObjectiveArrowsWhenUsingGrapple = class'WOTCGotchaAgainDefaultSettings'.default.bDisableHideObjectiveArrowsWhenUsingGrapple;
+            default.bDisableDimHostileUnitFlagsWhenUsingGrapple = class'WOTCGotchaAgainDefaultSettings'.default.bDisableDimHostileUnitFlagsWhenUsingGrapple;
 
-            default.bUseCustomPathIndicatorSystem               = class'GotchaAgainDefaultSettings'.default.bUseCustomPathIndicatorSystem;
-            default.bShowOverwatchTriggers                      = class'GotchaAgainDefaultSettings'.default.bShowOverwatchTriggers;
-            default.bShowActivationTriggers                     = class'GotchaAgainDefaultSettings'.default.bShowActivationTriggers;
-            default.bShowNoiseIndicators                        = class'GotchaAgainDefaultSettings'.default.bShowNoiseIndicators;
-            default.bShowSmokeIndicator                         = class'GotchaAgainDefaultSettings'.default.bShowSmokeIndicator;
-            default.bShowPsiBombIndicator                       = class'GotchaAgainDefaultSettings'.default.bShowPsiBombIndicator;
+            default.bUseCustomPathIndicatorSystem               = class'WOTCGotchaAgainDefaultSettings'.default.bUseCustomPathIndicatorSystem;
+            default.bShowOverwatchTriggers                      = class'WOTCGotchaAgainDefaultSettings'.default.bShowOverwatchTriggers;
+            default.bShowActivationTriggers                     = class'WOTCGotchaAgainDefaultSettings'.default.bShowActivationTriggers;
+            default.bShowNoiseIndicators                        = class'WOTCGotchaAgainDefaultSettings'.default.bShowNoiseIndicators;
+            default.bShowSmokeIndicator                         = class'WOTCGotchaAgainDefaultSettings'.default.bShowSmokeIndicator;
+            default.bShowPsiBombIndicator                       = class'WOTCGotchaAgainDefaultSettings'.default.bShowPsiBombIndicator;
         case 135:
         case 136:
-            default.bShowRemoteDoorHackingIndicators            = class'GotchaAgainDefaultSettings'.default.bShowRemoteDoorHackingIndicators;
+            default.bShowRemoteDoorHackingIndicators            = class'WOTCGotchaAgainDefaultSettings'.default.bShowRemoteDoorHackingIndicators;
         case 137:
-            default.bShowOverwatchTriggerForSuppression         = class'GotchaAgainDefaultSettings'.default.bShowOverwatchTriggerForSuppression;
+            default.bShowOverwatchTriggerForSuppression         = class'WOTCGotchaAgainDefaultSettings'.default.bShowOverwatchTriggerForSuppression;
         case 138:
     }
-    default.iVersion = class'GotchaAgainDefaultSettings'.default.iVersion;
+    default.iVersion = class'WOTCGotchaAgainDefaultSettings'.default.iVersion;
     StaticSaveConfig();
 }
 

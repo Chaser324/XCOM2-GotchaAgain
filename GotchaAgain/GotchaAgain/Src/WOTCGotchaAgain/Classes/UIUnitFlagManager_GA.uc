@@ -33,7 +33,7 @@ simulated function OnInit() {
     ObjectiveIndicatorUtility = new(self) class'ObjectiveIndicatorUtility_GA';
     ObjectiveIndicatorUtility.Init(CacheUtilityInstance, LOSUtilityInstance, UnitIndicatorUtility, LoadedIconPack);
 
-    if(class'GotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
+    if(class'WOTCGotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
         PathIndicatorUtility = new(self) class'PathIndicatorUtility_GA';
         PathIndicatorUtility.Init(CacheUtilityInstance, LOSUtilityInstance);
     }
@@ -48,9 +48,9 @@ simulated function OnInit() {
     ThisObj = self;
     class'X2EventManager'.static.GetEventManager().RegisterForEvent(ThisObj, 'AbilityActivated', OnAbilityActivated, ELD_Immediate);
 
-    bLongWar2Detected = class'X2DownloadableContentInfo_GotchaAgain'.static.IsOtherModLoaded('LW_Overhaul');
+    bLongWar2Detected = class'X2DownloadableContentInfo_WOTCGotchaAgain'.static.IsOtherModLoaded('LW_Overhaul');
 
-    `log("Gotcha Again v" $ class'GotchaAgainDefaultSettings'.default.iVersion $ ": Initialization complete.");
+    `log("Gotcha Again v" $ class'WOTCGotchaAgainDefaultSettings'.default.iVersion $ ": Initialization complete.");
 }
 
 
@@ -67,7 +67,7 @@ function RealizePreviewMovementAndLOS(XComPathingPawn PathingPawn) {
     RealizePreviewEndOfMoveLOS(PathingPawn.PathTileData[PathingPawn.PathTileData.Length - 1]);
 
     // Do movement path indicators if enabled
-    if(class'GotchaAgainSettings'.default.bUseCustomPathIndicatorSystem && !GrappleIsActive) {
+    if(class'WOTCGotchaAgainSettings'.default.bUseCustomPathIndicatorSystem && !GrappleIsActive) {
         // This MUST happen after UnitIndicatorUtility.ProcessUnitIndicators, since a sideeffect of that is updating the Cache for enemy units
         GetPathIndicatorUtility().ProcessPathIndicators(PathingPawn);
     }
@@ -79,7 +79,7 @@ function RealizePreviewEndOfMoveLOS(GameplayTileData MoveToTileData) {
     ControlledUnitSightRange = class'LOSUtility_GA'.static.GetUnitSightRange(ControlledUnit);
     bControlledUnitIsVIP = class'UnitIndicatorUtility_GA'.static.UnitIsVIP(ControlledUnit);
 
-    UnitIndicatorUtility.ProcessUnitIndicators(MoveToTileData.EventTile, (bLongWar2Detected && class'GotchaAgainSettings'.default.bShowLoneWolfIndicator));
+    UnitIndicatorUtility.ProcessUnitIndicators(MoveToTileData.EventTile, (bLongWar2Detected && class'WOTCGotchaAgainSettings'.default.bShowLoneWolfIndicator));
 
     if(!bControlledUnitIsVIP) {
         ObjectiveIndicatorUtility.ProcessObjectiveIndicators(MoveToTileData.EventTile);
@@ -103,7 +103,7 @@ simulated function RealizeTargetedStates() {
     local UIUnitFlag UnitFlag;
     
     // If this is not enabled, use the superclass function
-    if(!class'GotchaAgainSettings'.default.bDisableDimHostileUnitFlagsWhenUsingGrapple || !class'GotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
+    if(!class'WOTCGotchaAgainSettings'.default.bDisableDimHostileUnitFlagsWhenUsingGrapple || !class'WOTCGotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
         super.RealizeTargetedStates();
         return;
     } 
@@ -157,7 +157,7 @@ function ClearLOSIndicators(optional bool ForceClearCustomPathIndicators = false
     // Reset all objective indicators
     ObjectiveIndicatorUtility.ResetAllObjectiveIndicators();
 
-    if(class'GotchaAgainSettings'.default.bUseCustomPathIndicatorSystem || ForceClearCustomPathIndicators) {
+    if(class'WOTCGotchaAgainSettings'.default.bUseCustomPathIndicatorSystem || ForceClearCustomPathIndicators) {
         // Clear all path indicators in the custom path-indicator system
         GetPathIndicatorUtility().ClearAllPathIndicators();
     } 

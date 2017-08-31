@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" DefaultTargets="Default" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Guid>fa9b04b1-c447-4ce3-b608-d6f7a7d0e648</Guid>
-    <Name>GotchaAgain</Name>
+    <Name>WOTCGotchaAgain</Name>
     <Description>Demonstrates how to override XCOM 2 base game classes individually - example provided by Long War Studios</Description>
     <SteamPublishID>0</SteamPublishID>
     <AssemblyName>ExampleClassOverride</AssemblyName>
@@ -15,7 +15,7 @@
     <Content Include="Config\XComGame.ini">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Config\XComGotchaAgainDefaultSettings.ini">
+    <Content Include="Config\XComWOTCGotchaAgainDefaultSettings.ini">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\UILibrary_GA.upk">
@@ -47,88 +47,88 @@
     </Content>
     <Content Include="ModPreview.jpg" />
     <Content Include="ReadMe.txt" />
-    <Content Include="Src\GotchaAgain\Classes\CacheUtility_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\CacheUtility_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\DoorHackingIndicator_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\DoorHackingIndicator_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\GotchaAgainDefaultSettings.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\WOTCGotchaAgainDefaultSettings.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\GotchaAgainSettings.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\WOTCGotchaAgainSettings.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_lewe1.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_lewe1.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_lewe2.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_lewe2.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_lewe3.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_lewe3.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_lewe4.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_lewe4.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_lewe5.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_lewe5.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_vhs0.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_vhs0.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_vhs1.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_vhs1.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\IconPack_GA_vhs2.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\IconPack_GA_vhs2.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\LOSUtility_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\LOSUtility_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\ObjectiveIndicatorUtility_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\ObjectiveIndicatorUtility_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\PathIndicatorLocation_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\PathIndicatorLocation_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\PathIndicatorUtility_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\PathIndicatorUtility_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\PathIndicator_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\PathIndicator_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\UISpecialMissionHUD_Arrows_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\UISpecialMissionHUD_Arrows_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\UIUnitActivationIndicator_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\UIUnitActivationIndicator_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\UIUnitFlagManager_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\UIUnitFlagManager_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\UIUnitLOSIndicator_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\UIUnitLOSIndicator_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\UnitIndicatorUtility_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\UnitIndicatorUtility_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\X2DownloadableContentInfo_GotchaAgain.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\X2DownloadableContentInfo_WOTCGotchaAgain.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\X2GrapplePuck_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\X2GrapplePuck_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\X2MeleePathingPawn_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\X2MeleePathingPawn_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\XComGameState_IndicatorArrow_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\XComGameState_IndicatorArrow_GA.uc">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Src\GotchaAgain\Classes\XComPathingPawn_GA.uc">
+    <Content Include="Src\WOTCGotchaAgain\Classes\XComPathingPawn_GA.uc">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Src\ModConfigMenuAPI\Classes\MCM_API.uc">
@@ -176,8 +176,8 @@
     <Folder Include="Content\" />
     <Folder Include="Localization\" />
     <Folder Include="Src\" />
-    <Folder Include="Src\GotchaAgain" />
-    <Folder Include="Src\GotchaAgain\Classes" />
+    <Folder Include="Src\WOTCGotchaAgain" />
+    <Folder Include="Src\WOTCGotchaAgain\Classes" />
     <Folder Include="Src\ModConfigMenuAPI" />
     <Folder Include="Src\ModConfigMenuAPI\Classes" />
   </ItemGroup>

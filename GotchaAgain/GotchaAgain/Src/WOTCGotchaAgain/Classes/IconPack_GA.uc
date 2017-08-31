@@ -148,7 +148,7 @@ public function ArrowIndicatorIconSet GetIconSet(EIconSetIdentifier IconSet) {
 public static function IconPack_GA LoadIconPack() {
     local IconPack_GA IconPack;
 
-    switch(class'GotchaAgainSettings'.default.sIconPack) {
+    switch(class'WOTCGotchaAgainSettings'.default.sIconPack) {
         case "lewe1":
             IconPack = new class'IconPack_GA_lewe1';
             break;

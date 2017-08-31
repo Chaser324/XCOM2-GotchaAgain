@@ -2,7 +2,7 @@ class UISpecialMissionHUD_Arrows_GA extends UISpecialMissionHUD_Arrows;
 
 function UpdateVisibility() {
     // If this is not enabled, call use the superclass function
-    if(!class'GotchaAgainSettings'.default.bDisableHideObjectiveArrowsWhenUsingGrapple || !class'GotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
+    if(!class'WOTCGotchaAgainSettings'.default.bDisableHideObjectiveArrowsWhenUsingGrapple || !class'WOTCGotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
         super.UpdateVisibility();
         return;
     } 

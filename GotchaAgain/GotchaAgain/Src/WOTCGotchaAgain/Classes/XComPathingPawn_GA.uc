@@ -6,7 +6,7 @@ var private bool PerfectInformationFound;
 
 // This is done elsewhere in order to properly handle conflicts with our new markers
 function protected UpdatePathMarkers() {
-    if(!class'GotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
+    if(!class'WOTCGotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
         super.UpdatePathMarkers();
     }
 }
@@ -67,7 +67,7 @@ simulated function UpdatePathTileData() {
 //
 //function bool IsPerfectInformationLoaded() {
     //if(!AlreadySearched) {
-        //PerfectInformationFound = class'X2DownloadableContentInfo_GotchaAgain'.static.IsOtherModLoaded('PerfectInformation');
+        //PerfectInformationFound = class'X2DownloadableContentInfo_WOTCGotchaAgain'.static.IsOtherModLoaded('PerfectInformation');
         //AlreadySearched = true;
     //}
     //return PerfectInformationFound;

@@ -2,7 +2,7 @@ class X2MeleePathingPawn_GA extends X2MeleePathingPawn;
 
 // We do this elsewhere in order to properly handle conflicts with our new markers
 function protected UpdatePathMarkers() {
-    if(!class'GotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
+    if(!class'WOTCGotchaAgainSettings'.default.bUseCustomPathIndicatorSystem) {
         super.UpdatePathMarkers();
     }
 }

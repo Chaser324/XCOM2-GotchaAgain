@@ -1,5 +1,5 @@
-class GotchaAgainDefaultSettings extends Object
-                                 config(GotchaAgainDefaultSettings);
+class WOTCGotchaAgainDefaultSettings extends Object
+                                 config(WOTCGotchaAgainDefaultSettings);
 
 var config int iVersion;
 

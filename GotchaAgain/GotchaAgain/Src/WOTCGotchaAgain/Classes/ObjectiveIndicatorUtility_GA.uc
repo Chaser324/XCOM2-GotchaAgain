@@ -15,7 +15,7 @@ public function Init(CacheUtility_GA CacheUtilityInstance, LOSUtility_GA LOSUtil
     UnitIndicatorUtility = UnitIndicatorUtilityInstance;
     IconPack = IconPackInstance;
 
-    if(class'GotchaAgainSettings'.default.bShowTowerHackingArrows) {
+    if(class'WOTCGotchaAgainSettings'.default.bShowTowerHackingArrows) {
         RegisterForTowerTriggers();
     }
 }
@@ -114,7 +114,7 @@ public function ProcessObjectiveIndicators(const out TTile DestinationTile) {
     local StateObjectReference EmptyRef;
     local array<TTile> VisibilityTiles;
 
-    if(class'GotchaAgainSettings'.default.bShowRemoteDoorHackingIndicators) {
+    if(class'WOTCGotchaAgainSettings'.default.bShowRemoteDoorHackingIndicators) {
         ProcessDoorHackingIndicators(DestinationTile);
     }
 
@@ -352,7 +352,7 @@ function SetTowersHaveBeenHackedAlready() {
     
     for(i = CacheUtility.ArrowObjectRelations.Length - 1; i > -1; i--) {
         if(CacheUtility.ArrowObjectRelations[i].Arrow.IsTowerIndicatorArrow()) {
-            if(class'GotchaAgainSettings'.default.bHideTowerArrowsAfterHacking) {
+            if(class'WOTCGotchaAgainSettings'.default.bHideTowerArrowsAfterHacking) {
                 class'XComGameState_IndicatorArrow_GA'.static.RemoveArrowPointingAtLocation(CacheUtility.ArrowObjectRelations[i].Arrow.Location);
                 CacheUtility.ArrowObjectRelations.RemoveItem(CacheUtility.ArrowObjectRelations[i]);
             } else {
@@ -361,7 +361,7 @@ function SetTowersHaveBeenHackedAlready() {
         }
     }
 
-    if(class'GotchaAgainSettings'.default.bHideTowerArrowsAfterHacking) {
+    if(class'WOTCGotchaAgainSettings'.default.bHideTowerArrowsAfterHacking) {
         // We can unregister from this event now since we no longer care about revealed towers
         ThisObj = self;
         class'X2EventManager'.static.GetEventManager().UnRegisterFromEvent(ThisObj, 'ObjectVisibilityChanged');
