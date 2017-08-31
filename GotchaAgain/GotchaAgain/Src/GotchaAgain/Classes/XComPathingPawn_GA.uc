@@ -16,11 +16,13 @@ function protected UpdatePathMarkers() {
 // Requires pretty much all variables used in here to be changed from private to protected in order to compile
 simulated function UpdatePathTileData() {
 	local XComPresentationLayer Pres;
+	local array<StateObjectReference> ObjectsVisibleToPlayer;
 
 	if(LastActiveUnit != none ) {
-		class'X2TacticalVisibilityHelpers'.static.FillPathTileData(LastActiveUnit.ObjectID, PathTiles, PathTileData);
+		class'X2TacticalVisibilityHelpers'.static.FillPathTileDataAndVisibleObjects(LastActiveUnit.ObjectID, PathTiles, PathTileData, ObjectsVisibleToPlayer, true);
 		if(ShowLOSPreview) {
 			Pres = `PRES;
+			UITacticalHUD_EnemyPreview(Pres.m_kTacticalHUD.m_kEnemyPreview).UpdatePreviewTargets(PathTileData[PathTileData.Length - 1], ObjectsVisibleToPlayer);
             UIUnitFlagManager_GA(Pres.m_kUnitFlagManager).RealizePreviewMovementAndLOS(self);
 		}
 	}
