@@ -1,10 +1,16 @@
 ﻿------------------------------------------------------------------------------------------------------------------------
-!! Gotcha Again v1.38                                                                                                 !!
-------------------------------------------------------------------------------------------------------------------------
-! Features                                                                                                             !
+!! Gotcha Again v1.39 (War of the Chosen)                                                                             !!
 ------------------------------------------------------------------------------------------------------------------------
 This mod improves on the Line of Sight indicators that are shown when previewing moves in the tactical game.
 
+This version is specifically for use with War of the Chosen. The original release that works in the base game without
+War of the Chosen can be found here: http://steamcommunity.com/sharedfiles/filedetails/?id=866874504
+
+This update was created with the permission of its original author.
+
+------------------------------------------------------------------------------------------------------------------------
+! Features                                                                                                             !
+------------------------------------------------------------------------------------------------------------------------
 Indicators for enemy units
 -Regular shootable indicator: Shows the red reticle from the base game next to an enemys healthbar when it is shootable
  from the new position.
@@ -146,14 +152,17 @@ X2MeleePathingPawn: Needed in order to do the path indicators when selecting tar
 ------------------------------------------------------------------------------------------------------------------------
 ! Known issues                                                                                                         !
 ------------------------------------------------------------------------------------------------------------------------
--Until the new version of Perfect Information is released, there are conflicts with this unless you manually fix it. See
- the discussion thread on this for instructions.
--Please let me know if you encounter any other issues, and if a savegame demonstrating it can be provided it will make
+-Please let me know if you encounter any issues, and if a savegame demonstrating it can be provided it will make
  fixing it a lot easier on my part.
 
 ------------------------------------------------------------------------------------------------------------------------
 ! Changelog                                                                                                            !
 ------------------------------------------------------------------------------------------------------------------------
+v1.39 (WOTC):
+- Update mod to work with War of the Chosen. This breaks compatibility with the vanilla non-WOTC version of XCOM 2.
+ Compatibility with Perfect Information is also now broken. I will attempt to restore compatibility if/when Perfect
+ Information is updated for WOTC.
+
 v1.38:
 -The indicator showing that hacking a door is possible will now trigger at range if hacking it is possible using the
  Gremlin.
