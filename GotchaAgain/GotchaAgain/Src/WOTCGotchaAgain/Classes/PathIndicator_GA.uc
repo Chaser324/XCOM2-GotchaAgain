@@ -12,7 +12,7 @@ enum EIndicatorType {
     eMoveThroughSmoke,
     eMakeNoise,
     eBreakConceal,
-    eHunterShot, // WOTC - Hunter Shot Waypoint Icon
+    eHunterShot, // WOTC - Hunter's Mark Tracking Shot
     eTriggerActivation,
     eTriggerOverwatch,
     ePsiBomb,

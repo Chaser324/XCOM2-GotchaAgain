@@ -25,3 +25,4 @@ var config bool bShowActivationTriggers;
 var config bool bShowNoiseIndicators;
 var config bool bShowSmokeIndicator;
 var config bool bShowPsiBombIndicator;
+var config bool bShowHuntersMarkIndicator;

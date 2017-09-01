@@ -37,14 +37,12 @@ This update was created with the permission of its original author.
 
 [h1]Compatibility[/h1]
 This mod overrides the following classes and will be incompatible with any other mods that overrides any of the same classes.
-UIUnitFlagManager: For the main functionality.
-XComGameState_IndicatorArrow: For objective indicator icon replacements.
-X2GrapplePuck: So indicators can be shown when selecting grapple locations.
-UISpecialMissionHUD_Arrows: To overrule the hiding of objective indicator when using grapple.
-XComPathingPawn: Doing path indicators. This is also overriden by Perfect Information. Gotcha Again implements compatibility with Perfect Information and tjnome has agreed to implement compatibility the other way as well, but until his new update is released, it can cause issues depending on the load order of the two mods. You can fix this manually by removing the override from Perfect Information (see the discussion thread on this for instructions).
-X2MeleePathingPawn: Needed in order to do the path indicators when selecting targets for melee attacks.
-
-I am not aware of any mods other than the original Gotcha that overrides any of these classes, except for Perfect Information which will implement compatibility with Gotcha Again in the next update and can be fixed manually until then.
+[i]UIUnitFlagManager:[/i] For the main functionality.
+[i]XComGameState_IndicatorArrow:[/i] For objective indicator icon replacements.
+[i]X2GrapplePuck:[/i] So indicators can be shown when selecting grapple locations.
+[i]UISpecialMissionHUD_Arrows:[/i] To overrule the hiding of objective indicator when using grapple.
+[i]XComPathingPawn:[/i] Doing path indicators.
+[i]X2MeleePathingPawn:[/i] Needed in order to do the path indicators when selecting targets for melee attacks.
 
 [h1]Known issues[/h1]
 -Compatibility with Perfect Information has been broken. I will repair it if/when Perfect Information is updated for War of the Chosen.

@@ -64,6 +64,7 @@ public function ProcessPathIndicators(XComPathingPawn _PathingPawn) {
 
     if(class'WOTCGotchaAgainSettings'.default.bShowPsiBombIndicator) PreparePsiBombIndicator(PathingPawn.PathTiles);
     if(class'WOTCGotchaAgainSettings'.default.bShowSmokeIndicator) PrepareSmokeIndicator(PathingPawn.PathTiles);
+	if(class'WOTCGotchaAgainSettings'.default.bShowHuntersMarkIndicator) PrepareHuntersMarkIndicator(PathingPawn.PathTiles);
     
     // Update the waypoint-indicator at the current tile if waypoint-updatemode is active (private access-modifier is not enforced at runtime!)
     if(PathingPawn.WaypointModifyMode) {
@@ -135,6 +136,21 @@ private function PrepareSmokeIndicator(const out array<TTile> PathTiles) {
     }
 }
 
+private function PrepareHuntersMarkIndicator(const out array<TTile> PathTiles) {
+    local int i;
+	local TTile CheckTile;
+
+    CheckTile = PathTiles[PathTiles.Length - 1];
+
+	// Hunter's Mark
+	for(i = 0; i < PathingPawn.LaserScopeMarkers.Length; i++) {
+        if(PathingPawn.LaserScopeMarkers[i] == CheckTile) {
+			PathIndicatorLocationIndex = GetPathIndicator(PathTiles[PathTiles.Length - 1], PathTiles.Length - 1, PathIndicatorLocationIndex);
+            PathIndicatorLocations[PathIndicatorLocationIndex].AddIndicatorToLocation(eHunterShot);
+            break;
+        }
+    }
+}
 
 private function PreparePsiBombIndicator(const out array<TTile> PathTiles) {
     local XComWorldData WorldData;
@@ -261,7 +277,8 @@ private function PrepareTriggerIndicators(const out array<TTile> PathTiles, bool
             
             // Overwatch triggers when passing through a tile that is visible to an overwatching unit. So the final
             // tile which we're only entering will never trigger either so we skip that as well
-            if(DoOverwatchIndicators && i < PathTiles.Length - 1) {
+			// WOTC Update - Overwatch now triggers when moving into a tile, so we need to check the final destination tile as well.
+            if(DoOverwatchIndicators && i < PathTiles.Length) {
                 foreach Shooters(EnemyUnit) {
                     if(TriggeredOverwatches.Find(EnemyUnit) == INDEX_NONE) {
                         TriggeredOverwatches.AddItem(EnemyUnit);
@@ -558,20 +575,16 @@ private function GetShootersAndViewersForTile(const out TTile Tile, const out ar
     Shooters.Length = 0;
     Viewers.Length = 0;
     foreach RevealedEnemies(EnemyUnit) {
-        // On all but the final tile our unit is moving so would logicall not be used for overwatching units LOS checks, BUT IT IS!
+        // On all but the final tile our unit is moving so would logically not be used for overwatching units LOS checks, BUT IT IS!
         // The final tile is not relevant for shooters since overwatch cannot trigger on that
-        if(!IsFinalTile) {
-            UnitLOSValues = LOSUtility.GetLOSValues(EnemyUnit.TileLocation, 
-                                                    Tile, 
-                                                    EnemyUnit, 
-                                                    Outer.ControlledUnit, 
-                                                    LOSUtility.GetUnitSightRange(EnemyUnit), 
-                                                    , 
-                                                    !EnemyUnit.CanTakeCover());
-        } else {
-            // Make sure values are false if we're not getting actual ones
-            UnitLOSValues.bClearLOS = false; UnitLOSValues.bWithinRegularRange = false;
-        }
+        // WOTC Update - Overwatch can now trigger on the final tile.
+        UnitLOSValues = LOSUtility.GetLOSValues(EnemyUnit.TileLocation, 
+                                                Tile, 
+                                                EnemyUnit, 
+                                                Outer.ControlledUnit, 
+                                                LOSUtility.GetUnitSightRange(EnemyUnit), 
+                                                , 
+                                                !EnemyUnit.CanTakeCover());
         
         if(UnitLOSValues.bClearLOS) {
             if(UnitLOSValues.bWithinRegularRange) {

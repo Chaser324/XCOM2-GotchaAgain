@@ -1,5 +1,5 @@
 ﻿------------------------------------------------------------------------------------------------------------------------
-!! Gotcha Again v1.40 (War of the Chosen)                                                                             !!
+!! Gotcha Again v1.41 (War of the Chosen)                                                                             !!
 ------------------------------------------------------------------------------------------------------------------------
 This mod improves on the Line of Sight indicators that are shown when previewing moves in the tactical game.
 
@@ -127,6 +127,8 @@ bShowSmokeIndicator: Enable/disable the indicator for when the destination tile 
 bShowPsiBombIndicator: Enable/disable the indicator for when the destination tile is within the AOE of an active 
 PsiBomb.
 
+bShowHuntersMarkIndicator: Enable/disable the indicator for when the destination tile is targeted by Hunter's Mark.
+
 ------------------------------------------------------------------------------------------------------------------------
 ! Compatibility                                                                                                        !
 ------------------------------------------------------------------------------------------------------------------------
@@ -158,6 +160,11 @@ X2MeleePathingPawn: Needed in order to do the path indicators when selecting tar
 ------------------------------------------------------------------------------------------------------------------------
 ! Changelog                                                                                                            !
 ------------------------------------------------------------------------------------------------------------------------
+v1.41 (WOTC):
+- Added indicator for moving to a tile targeted by the Hunter's Mark skill.
+- Fixed overwatch triggered indicator to follow WotC behavior where overwatch can trigger on the final
+ tile of the move path.
+
 v1.40 (WOTC):
 - Renamed to "WOTCGotchaAgain" to try to avoid CTD issues seen when XCOM 2 launcher loads pre-WOTC version of
  Gotcha Again. Ignore any warnings this may cause when loading a save game.
