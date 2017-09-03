@@ -12,7 +12,7 @@ simulated event Tick(float DeltaTime) {
     // If this is not enabled, just return and skip updating the LOS indicators
     if(!class'WOTCGotchaAgainSettings'.default.bShowLOSIndicatorsForGrappleDestinations) {
         return;
-    }       
+    }
 
     // If a valid grapplelocation exists and a new one is selected, update LOS indicators based on it
     if(GetGrappleTargetLocation(GrappleTargetLocation) && GrappleTargetLocation != LastLOSLocation) {
