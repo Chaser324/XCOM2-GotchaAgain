@@ -8,6 +8,7 @@ var privatewrite UnitIndicatorUtility_GA UnitIndicatorUtility;
 
 var private int LocalClientPlayerObjectID;
 var private float LastDHIPrevention; // Used to make sure we only hide the default doorhacking indicators once per tick
+var private bool InitializedArrows;
 
 public function Init(CacheUtility_GA CacheUtilityInstance, LOSUtility_GA LOSUtilityInstance, UnitIndicatorUtility_GA UnitIndicatorUtilityInstance, IconPack_GA IconPackInstance) {
     CacheUtility = CacheUtilityInstance;
@@ -15,9 +16,7 @@ public function Init(CacheUtility_GA CacheUtilityInstance, LOSUtility_GA LOSUtil
     UnitIndicatorUtility = UnitIndicatorUtilityInstance;
     IconPack = IconPackInstance;
 
-    if(class'WOTCGotchaAgainSettings'.default.bShowTowerHackingArrows) {
-        RegisterForTowerTriggers();
-    }
+	InitializedArrows = false;
 }
 
 
@@ -50,6 +49,9 @@ private function RegisterForTowerTriggers() {
     ThisObj = self;
     LocalClientPlayerObjectID = X2TacticalGameRuleset(XComGameInfo(class'Engine'.static.GetCurrentWorldInfo().Game).GameRuleset).GetLocalClientPlayerObjectID();
 
+	// Add all currently visible towers if LocationScout sitrep is active.
+	AddAllVisibleTowers();
+
     // Register for reveal events
     class'X2EventManager'.static.GetEventManager().RegisterForEvent(ThisObj, 'ObjectVisibilityChanged', OnTowerRevealed, ELD_OnStateSubmitted);
 
@@ -58,6 +60,8 @@ private function RegisterForTowerTriggers() {
 
     // Register for destroyed events
     class'X2EventManager'.static.GetEventManager().RegisterForEvent(ThisObj, 'ObjectDestroyed', OnTowerDestroyed, ELD_OnStateSubmitted);
+
+	InitializedArrows = true;
 }
 
 
@@ -116,6 +120,10 @@ public function ProcessObjectiveIndicators(const out TTile DestinationTile) {
 
     if(class'WOTCGotchaAgainSettings'.default.bShowRemoteDoorHackingIndicators) {
         ProcessDoorHackingIndicators(DestinationTile);
+    }
+
+	if(class'WOTCGotchaAgainSettings'.default.bShowTowerHackingArrows && !InitializedArrows) {
+        RegisterForTowerTriggers();
     }
 
     foreach class'XComGameStateHistory'.static.GetGameStateHistory().IterateByClassType(class'XComGameState_IndicatorArrow_GA', Arrow) {
@@ -300,6 +308,27 @@ function EventListenerReturn OnTowerDestroyed(Object EventData, Object EventSour
 	return ELR_NoInterrupt;
 }
 
+private function AddAllVisibleTowers() {
+	local XComInteractiveLevelActor InteractiveActor;
+	local XComGameState_InteractiveObject InteractiveObject;
+	local XComGameStateHistory History;
+	local XComGameState_BattleData BattleData;
+
+	History = `XCOMHISTORY;
+	BattleData = XComGameState_BattleData(History.GetSingleGameStateObjectForClass(class'XComGameState_BattleData'));
+
+	if (BattleData.ActiveSitReps.Find('LocationScout') != INDEX_NONE)
+	{
+		foreach class'WorldInfo'.static.GetWorldInfo().AllActors(class'XComInteractiveLevelActor', InteractiveActor)
+		{
+			InteractiveObject = InteractiveActor.GetInteractiveState(History.GetStartState());
+			if(InteractiveActor.ActorType == Type_AdventTower && !CacheUtility.TowerHasBeenRevealed(InteractiveObject))
+			{
+				AddTowerArrow(InteractiveObject);
+			}
+		}
+	}
+}
 
 private function AddTowerArrow(XComGameState_InteractiveObject Tower) {
     local EIndicatorValue IndicatorValue;
