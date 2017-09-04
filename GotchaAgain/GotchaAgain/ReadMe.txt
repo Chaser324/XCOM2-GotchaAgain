@@ -1,5 +1,5 @@
 ﻿------------------------------------------------------------------------------------------------------------------------
-!! Gotcha Again v1.41 (War of the Chosen)                                                                             !!
+!! Gotcha Again v1.42 (War of the Chosen)                                                                             !!
 ------------------------------------------------------------------------------------------------------------------------
 This mod improves on the Line of Sight indicators that are shown when previewing moves in the tactical game.
 
@@ -160,6 +160,10 @@ X2MeleePathingPawn: Needed in order to do the path indicators when selecting tar
 ------------------------------------------------------------------------------------------------------------------------
 ! Changelog                                                                                                            !
 ------------------------------------------------------------------------------------------------------------------------
+v1.42 (WOTC):
+- Fix the display of Advent Towers when "Location Scout" sitrep is active.
+- Add cheat option that will always show pod activation indicator even for unrevealed enemies.
+
 v1.41 (WOTC):
 - Added indicator for moving to a tile targeted by the Hunter's Mark skill.
 - Fixed overwatch triggered indicator to follow WotC behavior where overwatch can trigger on the final
