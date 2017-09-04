@@ -262,10 +262,13 @@ private function PrepareTriggerIndicators(const out array<TTile> PathTiles, bool
     local array<XComGameState_AIGroup> CurrentTileActivations;
     local XComGameState_Unit EnemyUnit;
     local XComGameState_AIGroup AIGroup;
+	local bool alwaysShowEnemies;
+
+	alwaysShowEnemies = class'WOTCGotchaAgainSettings'.default.bAlwaysShowPodActivation;
 
     // Only do our custom indicators if we're not concealed since they're not relevant when we are.
     if(!Outer.ControlledUnit.IsConcealed() || BrokeConcealAtIndex != INDEX_NONE) {
-        RevealedEnemies = CacheUtility.GetRevealedEnemiesOfUnit(Outer.ControlledUnit);
+        RevealedEnemies = CacheUtility.GetRevealedEnemiesOfUnit(Outer.ControlledUnit, alwaysShowEnemies);
 
         // We can skip the first tile since overwatches only trigger when moving through a tile (and the first we're only exiting)
         // and activations would have already happened for this tile if they were to.

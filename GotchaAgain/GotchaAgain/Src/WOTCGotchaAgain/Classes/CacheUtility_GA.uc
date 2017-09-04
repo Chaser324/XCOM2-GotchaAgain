@@ -150,7 +150,7 @@ public function XComGameState_IndicatorArrow_GA RemoveTowerFromCache(XComGameSta
 }
 
 
-public function array<XComGameState_Unit> GetRevealedEnemiesOfUnit(XComGameState_Unit Unit) {
+public function array<XComGameState_Unit> GetRevealedEnemiesOfUnit(XComGameState_Unit Unit, bool forceAllRevealed) {
     local int i;
     local array<XComGameState_Unit> RevealedEnemies;
     local XComGameState_Unit EnemyUnit;
@@ -164,7 +164,7 @@ public function array<XComGameState_Unit> GetRevealedEnemiesOfUnit(XComGameState
         }
         EnemyUnit = XComGameState_Unit(class'XComGameStateHistory'.static.GetGameStateHistory().GetGameStateForObjectID(UnitFlagCache[i].UnitFlag.StoredObjectId));
         
-        if(EnemyUnit.IsEnemyUnit(Unit) && EnemyUnit.GetVisualizer().IsVisible()) {
+        if(EnemyUnit.IsEnemyUnit(Unit) && (EnemyUnit.GetVisualizer().IsVisible() || forceAllRevealed)) {
             RevealedEnemies.AddItem(EnemyUnit);
         }
     }

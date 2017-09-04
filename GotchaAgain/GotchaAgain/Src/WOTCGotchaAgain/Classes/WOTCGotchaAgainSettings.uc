@@ -26,6 +26,8 @@ var config bool bShowSmokeIndicator;
 var config bool bShowPsiBombIndicator;
 var config bool bShowHuntersMarkIndicator;
 
+var config bool bAlwaysShowPodActivation;
+
 var int CurrentGameMode;
 
 var private array<string> AvailableIconPacks;
@@ -98,6 +100,9 @@ simulated function ClientModCallback(MCM_API_Instance ConfigAPI, int GameMode) {
         Group.GetSettingByName('bShowOverwatchTriggerForSuppression').SetEditable(false);
     }
 
+	Group = Page.AddGroup('Cheats', "CHEATS");
+    Group.AddCheckbox('bAlwaysShowPodActivation', "Unrevealed Pod Activation indicator", "Always show pod activation indicator even for unrevealed enemies.", bAlwaysShowPodActivation, CheckboxSaveHandler, CheckboxChangeHandler);
+
     Page.ShowSettings();
 }
 
@@ -149,6 +154,8 @@ simulated function CheckboxSaveHandler(MCM_API_Setting _Setting, bool _SettingVa
         case 'bShowSmokeIndicator':                         bShowSmokeIndicator = _SettingValue; break;
         case 'bShowPsiBombIndicator':                       bShowPsiBombIndicator = _SettingValue; break;
         case 'bShowHuntersMarkIndicator':                   bShowHuntersMarkIndicator = _SettingValue; break;
+
+		case 'bAlwaysShowPodActivation':					bAlwaysShowPodActivation = _SettingValue; break;
     }
 }
 
@@ -219,6 +226,8 @@ private static function LoadDefaultSettings() {
 		case 139:
 		case 140:
 			default.bShowHuntersMarkIndicator                   = class'WOTCGotchaAgainDefaultSettings'.default.bShowHuntersMarkIndicator;
+		case 141:
+			default.bAlwaysShowPodActivation					= class'WOTCGotchaAgainDefaultSettings'.default.bAlwaysShowPodActivation;
     }
     default.iVersion = class'WOTCGotchaAgainDefaultSettings'.default.iVersion;
     StaticSaveConfig();
